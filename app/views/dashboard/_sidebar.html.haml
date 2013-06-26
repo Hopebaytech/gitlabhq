@@ -1,16 +1,16 @@
 %ul.nav.nav-tabs.dash-sidebar-tabs
   %li.active
-    = link_to 'Projects', '#projects', 'data-toggle' => 'tab', id: 'sidebar-projects-tab'
-  %li
     = link_to 'Groups', '#groups', 'data-toggle' => 'tab', id: 'sidebar-groups-tab'
+  %li
+    = link_to 'Projects', '#projects', 'data-toggle' => 'tab', id: 'sidebar-projects-tab'
   %li
     = link_to 'Teams', '#teams', 'data-toggle' => 'tab', id: 'sidebar-teams-tab'
 
 .tab-content
-  .tab-pane.active#projects
-    = render "projects", projects: @projects
-  .tab-pane#groups
+  .tab-pane.active#groups
     = render "groups", groups: @groups
+  .tab-pane#projects
+    = render "projects", projects: @projects
   .tab-pane#teams
     = render "teams", teams: @teams
 
