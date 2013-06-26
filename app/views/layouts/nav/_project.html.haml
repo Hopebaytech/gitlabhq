@@ -21,10 +21,13 @@
 
   - if project_nav_tab? :issues
     = nav_link(controller: %w(issues milestones labels)) do
-      = link_to url_for_project_issues do
-        Issues
-        - if @project.used_default_issues_tracker?
+      - if @project.used_default_issues_tracker?
+        = link_to url_for_project_issues do
+          Issues
           %span.count.issue_counter= @project.issues.opened.count
+      - else
+        = link_to "#{url_for_project_issues}/issues" do
+          Issues
 
   - if project_nav_tab? :merge_requests
     = nav_link(controller: :merge_requests) do
