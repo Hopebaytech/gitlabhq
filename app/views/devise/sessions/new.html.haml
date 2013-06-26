@@ -4,9 +4,9 @@
   - if ldap_enabled?
     %ul.nav.nav-tabs
       %li.active
-        = link_to 'LDAP', '#tab-ldap', 'data-toggle' => 'tab'
+        = link_to 'Hopebaytech', '#tab-ldap', 'data-toggle' => 'tab'
       %li
-        = link_to 'Ordinary', '#tab-signin', 'data-toggle' => 'tab'
+        = link_to 'Gitlab', '#tab-signin', 'data-toggle' => 'tab'
     .tab-content
       %div#tab-ldap.tab-pane.active
         = render partial: 'devise/sessions/new_ldap'
