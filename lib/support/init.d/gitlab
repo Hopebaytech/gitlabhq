@@ -53,6 +53,7 @@ start() {
     if [ `whoami` = root ]; then
       execute "rm $SOCKET_PATH/gitlab.socket"
       execute "RAILS_ENV=production bundle exec puma $DAEMON_OPTS"
+      sleep 20
       execute "mkdir -p $PID_PATH && $START_SIDEKIQ  > /dev/null  2>&1 &"
       echo "$DESC started"
     fi
@@ -65,6 +66,7 @@ stop() {
   if [ "$PID" -ne 0 -a "$STATUS" -ne 0 ]; then
     ## Program is running, stop it.
     kill -QUIT `cat $WEB_SERVER_PID`
+    sleep 20
     execute "mkdir -p $PID_PATH && $STOP_SIDEKIQ  > /dev/null  2>&1 &"
     rm "$WEB_SERVER_PID" >> /dev/null
     echo "$DESC stopped"
@@ -83,6 +85,7 @@ restart() {
     kill -USR2 `cat $WEB_SERVER_PID`
     execute "mkdir -p $PID_PATH && $STOP_SIDEKIQ  > /dev/null  2>&1 &"
     if [ `whoami` = root ]; then
+      sleep 20
       execute "mkdir -p $PID_PATH && $START_SIDEKIQ  > /dev/null  2>&1 &"
     fi
     echo "$DESC restarted."
