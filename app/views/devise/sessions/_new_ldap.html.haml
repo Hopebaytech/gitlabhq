@@ -1,6 +1,6 @@
 = form_tag(user_omniauth_callback_path(:ldap), id: 'new_ldap_user' ) do
-  = text_field_tag :username, nil, {class: "text top", placeholder: "Hopebaytech Account ex: ben.jai", autofocus: "autofocus"}
-  = password_field_tag :password, nil, {class: "text bottom", placeholder: "Hopebaytech password, default is: 54323013"}
+  = text_field_tag :username, nil, {class: "text top", placeholder: "Hopebay Account ex: ben.jai", autofocus: "autofocus"}
+  = password_field_tag :password, nil, {class: "text bottom", placeholder: "Hopebay Password, default: 54323013"}
   %br/
   = submit_tag "Sign in", class: "btn-create btn"
   = link_to "Change Hopebaytech Password", "http://account/", class: "btn btn-primary"
